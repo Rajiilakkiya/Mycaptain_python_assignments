@@ -1,12 +1,14 @@
 def most_frequent(s,j):
     num=s.count(j)
-    print(j,"= {0:02d}".format(num))
+    return num
 s=input('Enter a string:')
 lst=[]
 for i in s:
     if i not in lst:
         lst.append(i)
+dic={}
 for j in lst:
-    most_frequent(s,j)
-    
-    
+    count=most_frequent(s,j)
+    dic[j]=count
+for elem in sorted(dic.items(),reverse=True,key=lambda x:x[1]):
+    print(elem[0],":",elem[1])
